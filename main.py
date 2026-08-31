@@ -6,7 +6,7 @@ def main() -> None:
     catalogo = Catalogo()
 
     # Carga desde el dataset de Kaggle
-    ruta_dataset = "datos/canciones_kaggle.csv"
+    ruta_dataset = "datos/canciones-kreagle.csv.csv"
     catalogo.cargar_desde_csv(ruta_dataset)
 
     print(
