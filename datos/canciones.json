@@ -1,0 +1,22 @@
+[
+  {"titulo": "De Música Ligera", "artista": "Soda Stereo", "genero": "Rock", "popularidad": 9.8},
+  {"titulo": "Crimen", "artista": "Gustavo Cerati", "genero": "Rock", "popularidad": 9.5},
+  {"titulo": "Ji Ji Ji", "artista": "Patricio Rey", "genero": "Rock", "popularidad": 9.7},
+  {"titulo": "Arrancacorazones", "artista": "A77AQUE", "genero": "Punk Rock", "popularidad": 8.9},
+  {"titulo": "Fuego", "artista": "Intoxicados", "genero": "Rock", "popularidad": 8.8},
+  {"titulo": "Flaca", "artista": "Andrés Calamaro", "genero": "Pop Rock", "popularidad": 9.4},
+  {"titulo": "Spaghetti del Rock", "artista": "Divididos", "genero": "Rock", "popularidad": 9.3},
+  {"titulo": "Pupilas Lejanas", "artista": "Los Pericos", "genero": "Reggae", "popularidad": 8.6},
+  {"titulo": "La Bifurcada", "artista": "Memphis La Blusera", "genero": "Blues", "popularidad": 8.5},
+  {"titulo": "Mil Horas", "artista": "Los Abuelos de la Nada", "genero": "Pop Rock", "popularidad": 9.2},
+  {"titulo": "Mariposa Tecknicolor", "artista": "Fito Páez", "genero": "Pop Rock", "popularidad": 9.1},
+  {"titulo": "Rezo por Vos", "artista": "Charly García", "genero": "Rock", "popularidad": 9.6},
+  {"titulo": "Cae el Sol", "artista": "Airbag", "genero": "Rock", "popularidad": 8.7},
+  {"titulo": "Post-Crucifixión", "artista": "Pescado Rabioso", "genero": "Rock", "popularidad": 9.0},
+  {"titulo": "Campanas en la Noche", "artista": "Los Tipitos", "genero": "Pop Rock", "popularidad": 8.4},
+  {"titulo": "Pensar en Nada", "artista": "León Gieco", "genero": "Folk Rock", "popularidad": 8.8},
+  {"titulo": "Un Osito de Peluche de China", "artista": "Los Auténticos Decadentes", "genero": "Ska", "popularidad": 8.7},
+  {"titulo": "La Lechuza", "artista": "La Renga", "genero": "Hard Rock", "popularidad": 8.9},
+  {"titulo": "Y qué?", "artista": "Babasónicos", "genero": "Indie Rock", "popularidad": 8.8},
+  {"titulo": "Magia Veneno", "artista": "Catupecu Machu", "genero": "Rock Alternativo", "popularidad": 8.6}
+]
