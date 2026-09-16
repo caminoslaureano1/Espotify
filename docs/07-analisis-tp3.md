@@ -8,25 +8,35 @@ Ordenamos por **título de la canción** en minúsculas (`lambda c: c.titulo.low
 
 ## 3. Prueba del árbol
 Salida al ejecutar `python algoritmos/probar_bst.py`: 
-""
-========================================
-         ESPOTIFY TERMINAL (v1)
-========================================
-1. Buscar canción por título
-2. Listar todas las canciones
-3. Filtrar por género
-0. Salir
-----------------------------------------
-Opción: 1
-Título a buscar: material girl
+```text
+Altura del árbol: 4
 
-Encontrada: 'Material Girl' - Kris Bowers (jazz) [Pop: 5.9]
+--- inorder (ordenado alfabéticamente) ---
+ 'Arrancacorazones' - A77AQUE (Punk Rock) [Pop: 8.9]
+ 'Crimen' - Gustavo Cerati (Rock) [Pop: 9.5]
+ 'De Música Ligera' - Soda Stereo (Rock) [Pop: 9.8]
+ 'Flaca' - Andrés Calamaro (Pop Rock) [Pop: 9.4]
+ 'Ji Ji Ji' - Patricio Rey (Rock) [Pop: 9.7]
 
-========================================
-         ESPOTIFY TERMINAL (v1)
-========================================
-1. Buscar canción por título
-2. Listar todas las canciones
-3. Filtrar por género
-0. Salir
----------------------------------------- "" 
+--- preorder ---
+ De Música Ligera
+ Crimen
+ Arrancacorazones
+ Ji Ji Ji
+ Flaca
+
+--- postorder ---
+ Arrancacorazones
+ Crimen
+ Flaca
+ Ji Ji Ji
+ De Música Ligera
+
+--- búsquedas ---
+Buscar 'crimen': 'Crimen' - Gustavo Cerati (Rock) [Pop: 9.5]
+Buscar 'zzz': None 
+
+test de medicion de tiempos
+| N elementos | Secuencial (ms) | Árbol BST (ms) |
+|---|---|---|
+| 20 | 0.32990 | 0.00750 |
