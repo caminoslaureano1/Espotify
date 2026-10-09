@@ -79,15 +79,27 @@ La arquitectura del proyecto aplica el principio de separación de responsabilid
 │   ├── 03-diagrama-clases.md  # Diagrama UML en formato Mermaid
 │   ├── 04-diagrama-datos.md   # Modelo e integración de estructuras
 │   ├── 05-gestion-proyecto.md # Tablero de trabajo y seguimiento
-│   └── capturas/              # Evidencia visual de ejecución de terminal
+│   ├── 07-analisis-tp3.md     # Análisis del BST
+│   ├── 08-analisis-tp4-tp5.md # Análisis del AVL y del árbol general
+│   └── Capturas/              # Salidas de terminal usadas como evidencia
+├── estructuras/
+│   ├── arbol_binario.py       # BST (TP3)
+│   ├── avl.py                 # Árbol AVL (TP4)
+│   └── arbol_general.py       # Árbol general N-ario (TP5)
+├── algoritmos/
+│   ├── medir_tiempos.py       # Secuencial vs BST (TP3)
+│   └── comparar_bst_avl.py    # BST vs AVL con datos ordenados (TP4)
 ├── modelos/
 │   └── cancion.py             # Clase de dominio (Cancion) con encapsulamiento
 ├── servicios/
-│   └── catalogo.py            # Lógica de negocio (búsqueda, listado, filtrado)
+│   ├── catalogo.py            # Lógica de negocio (búsqueda con AVL, top, filtrado)
+│   └── categorias.py          # Jerarquía de géneros para el árbol general
 ├── ui/
 │   └── terminal.py            # Interfaz de línea de comandos (I/O)
 └── tests/
-    └── test_catalogo.py       # Pruebas unitarias automatizadas
+    ├── test_catalogo.py       # Pruebas del catálogo
+    ├── test_avl.py            # Pruebas del AVL y sus rotaciones
+    └── test_arbol_general.py  # Pruebas del árbol general y la jerarquía
 ```
 
 ---
@@ -100,6 +112,8 @@ Toda la documentación técnica se encuentra formalizada en la carpeta `docs/`:
 * [📄 02-casos-de-uso.md](docs/02-casos-de-uso.md) — Flujos principales y alternativos de interacción.
 * [📄 03-diagrama-clases.md](docs/03-diagrama-clases.md) — Diagrama de clases Mermaid actualizado (v1).
 * [📄 05-gestion-proyecto.md](docs/05-gestion-proyecto.md) — Planificación del proyecto y enlace al tablero Kanban.
+* [📄 07-analisis-tp3.md](docs/07-analisis-tp3.md) — Análisis del árbol binario de búsqueda.
+* [📄 08-analisis-tp4-tp5.md](docs/08-analisis-tp4-tp5.md) — Análisis del árbol AVL y del árbol general.
 
 ---
 
@@ -108,6 +122,8 @@ Toda la documentación técnica se encuentra formalizada en la carpeta `docs/`:
 * [x] **TP0 (Lanzamiento):** Propuesta de dominio, requerimientos iniciales, diagrama de clases e infraestructura Git.
 * [x] **TP1 (Versión Funcional Mínima v1):** Modelado del dominio `Cancion`, catálogo `Catalogo`, menú interactivo de terminal y suite de tests.
 * [ ] **TP2 (Análisis de Complejidad & Benchmarking):** Medición de tiempos de búsqueda.
-* [ ] **TP3 (Estructuras Jerárquicas - Árboles BST/AVL):** Indexación eficiente por título.
+* [x] **TP3 (Árbol Binario de Búsqueda):** Indexación por título con BST y medición de tiempos.
+* [x] **TP4 (Árbol AVL):** Índice por título auto-balanceado, comparación BST vs AVL con 10.000 datos ordenados.
+* [x] **TP5 (Árbol General):** Jerarquía Música → familia → género para la opción "Explorar categorías".
 * [ ] **TP6 (Colas de Prioridad - Heap):** Ranking Top-N de canciones por popularidad.
 * [ ] **TP7 (Grafos):** Recomendación por caminos de similitud entre pistas.

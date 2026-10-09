@@ -1,0 +1,38 @@
+=== Árbol General de Categorías ===
+Raíz: Música
+Altura: 3
+Cantidad de nodos: 11
+
+Música
+├── Rock
+│   ├── alt-rock
+│   ├── hard-rock
+│   └── punk
+├── Electrónica
+│   ├── house
+│   └── techno
+└── Latina
+    ├── tango
+    └── salsa
+
+--- Recorrido en amplitud ---
+['Música', 'Rock', 'Electrónica', 'Latina', 'alt-rock', 'hard-rock', 'punk', 'house', 'techno', 'tango', 'salsa']
+
+--- Recorrido en profundidad (preorder) ---
+['Música', 'Rock', 'alt-rock', 'hard-rock', 'punk', 'Electrónica', 'house', 'techno', 'Latina', 'tango', 'salsa']
+
+--- Recorrido en profundidad (postorder) ---
+['alt-rock', 'hard-rock', 'punk', 'Rock', 'house', 'techno', 'Electrónica', 'tango', 'salsa', 'Latina', 'Música']
+
+--- Niveles ---
+  Nivel 0: ['Música']
+  Nivel 1: ['Rock', 'Electrónica', 'Latina']
+  Nivel 2: ['alt-rock', 'hard-rock', 'punk', 'house', 'techno', 'tango', 'salsa']
+
+--- Hijos de 'Rock' ---
+['alt-rock', 'hard-rock', 'punk']
+
+--- Buscar 'tango' ---
+Encontrado: Nodo(tango)
+--- Buscar 'opera' ---
+Encontrado: None

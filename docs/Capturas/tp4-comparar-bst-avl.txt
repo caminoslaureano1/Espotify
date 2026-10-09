@@ -1,0 +1,24 @@
+Límite de recursión por defecto: 1000
+BST con datos ordenados: RecursionError (se sube el límite)
+
+====================================================================
+BST vs AVL — 10000 títulos insertados en orden alfabético
+Último título (hoja más profunda del BST): 'Caserón de Tejas (feat. Jorge Calandrelli)'
+====================================================================
+Métrica                                            BST           AVL
+--------------------------------------------------------------------
+Altura                                           10000            14
+Construcción (ms)                              27173.4          99.9
+Búsqueda del último título (ms)                 3.6705        0.0022
+Búsqueda de títulos aleatorios (ms)             1.8820        0.0027
+Búsqueda de título inexistente (ms)             3.6450        0.0023
+(promedio de 1000 búsquedas por fila)
+
+====================================================================
+Dataset completo en orden del CSV — 114000 filas, 72397 títulos distintos
+====================================================================
+Métrica                                            BST           AVL
+--------------------------------------------------------------------
+Altura                                              46            19
+Construcción (ms)                                993.5        1231.0
+Búsqueda de títulos aleatorios (ms)             0.0054        0.0034

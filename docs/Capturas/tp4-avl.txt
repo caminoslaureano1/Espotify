@@ -1,0 +1,38 @@
+=== AVL con datos ordenados ===
+Altura del AVL: 4
+Cantidad de nodos: 10
+Raíz: Elemento(nombre='D', valor=4)
+
+--- inorder ---
+  Elemento(nombre='A', valor=1)
+  Elemento(nombre='B', valor=2)
+  Elemento(nombre='C', valor=3)
+  Elemento(nombre='D', valor=4)
+  Elemento(nombre='E', valor=5)
+  Elemento(nombre='F', valor=6)
+  Elemento(nombre='G', valor=7)
+  Elemento(nombre='H', valor=8)
+  Elemento(nombre='I', valor=9)
+  Elemento(nombre='J', valor=10)
+
+--- preorder (muestra el balance) ---
+  Elemento(nombre='D', valor=4)
+  Elemento(nombre='B', valor=2)
+  Elemento(nombre='A', valor=1)
+  Elemento(nombre='C', valor=3)
+  Elemento(nombre='H', valor=8)
+  Elemento(nombre='F', valor=6)
+  Elemento(nombre='E', valor=5)
+  Elemento(nombre='G', valor=7)
+  Elemento(nombre='I', valor=9)
+  Elemento(nombre='J', valor=10)
+
+Buscar 'F': Elemento(nombre='F', valor=6)
+Buscar 'Z': None
+
+=== Comparación BST vs AVL ===
+  Altura BST: 10
+  Altura AVL: 4
+  AVL más bajo que BST: True
+  1000 búsquedas de 'J' en BST: 1.457 ms
+  1000 búsquedas de 'J' en AVL: 0.496 ms

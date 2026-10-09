@@ -1,8 +1,11 @@
+from estructuras.arbol_general import ArbolGeneral
 from servicios.catalogo import Catalogo
+from servicios.categorias import construir_arbol_categorias
 from ui.terminal import Terminal
 
 
 def main() -> None:
+    # El catálogo indexa los títulos en un árbol AVL (opción "Buscar")
     catalogo = Catalogo()
 
     # Carga desde el dataset de Kaggle
@@ -10,10 +13,15 @@ def main() -> None:
     catalogo.cargar_desde_csv(ruta_dataset)
 
     print(
-        f"Se cargaron exitosamente {len(catalogo)} canciones desde '{ruta_dataset}'."
+        f"Se cargaron exitosamente {len(catalogo)} canciones desde '{ruta_dataset}' "
+        f"(altura del índice AVL: {catalogo.altura_indice()})."
     )
 
-    terminal = Terminal(catalogo)
+    # Jerarquía Música → familia → género (opción "Explorar categorías")
+    arbol_categorias = ArbolGeneral()
+    construir_arbol_categorias(arbol_categorias)
+
+    terminal = Terminal(catalogo, arbol_categorias)
     terminal.iniciar()
 
 

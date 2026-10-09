@@ -1,0 +1,141 @@
+Se cargaron exitosamente 114000 canciones desde 'datos/canciones-kreagle.csv.csv' (altura del índice AVL: 19).
+========================================
+         ESPOTIFY TERMINAL (v2)
+========================================
+1. Buscar canción por título (AVL)
+2. Explorar categorías (Árbol General)
+3. Ver Top 10
+4. Listar canciones
+5. Filtrar por género
+0. Salir
+----------------------------------------
+Opción: Título a buscar: 
+Encontrada: 'Ghost - Acoustic' - Ben Woodward (acoustic) [Pop: 5.5]
+
+========================================
+         ESPOTIFY TERMINAL (v2)
+========================================
+1. Buscar canción por título (AVL)
+2. Explorar categorías (Árbol General)
+3. Ver Top 10
+4. Listar canciones
+5. Filtrar por género
+0. Salir
+----------------------------------------
+Opción: Título a buscar: 
+No se encontró la canción 'Cancion que no existe'.
+
+========================================
+         ESPOTIFY TERMINAL (v2)
+========================================
+1. Buscar canción por título (AVL)
+2. Explorar categorías (Árbol General)
+3. Ver Top 10
+4. Listar canciones
+5. Filtrar por género
+0. Salir
+----------------------------------------
+Opción: 
+Categorías por amplitud (familias de géneros):
+  - Rock
+  - Metal
+  - Pop
+  - Electrónica
+  - Hip-Hop y R&B
+  - Jazz, Blues y Soul
+  - Latina
+  - Reggae y Caribe
+  - Folk, Country y Acústica
+  - Clásica e Instrumental
+  - Música del mundo
+  - Estados de ánimo
+  - Infantil y Entretenimiento
+
+Categoría a explorar (Enter para volver): 
+Latina
+├── latin
+├── latino
+├── reggaeton
+├── salsa
+├── tango
+├── spanish
+├── brazil
+├── mpb
+├── samba
+├── pagode
+├── forro
+└── sertanejo
+
+========================================
+         ESPOTIFY TERMINAL (v2)
+========================================
+1. Buscar canción por título (AVL)
+2. Explorar categorías (Árbol General)
+3. Ver Top 10
+4. Listar canciones
+5. Filtrar por género
+0. Salir
+----------------------------------------
+Opción: 
+Categorías por amplitud (familias de géneros):
+  - Rock
+  - Metal
+  - Pop
+  - Electrónica
+  - Hip-Hop y R&B
+  - Jazz, Blues y Soul
+  - Latina
+  - Reggae y Caribe
+  - Folk, Country y Acústica
+  - Clásica e Instrumental
+  - Música del mundo
+  - Estados de ánimo
+  - Infantil y Entretenimiento
+
+Categoría a explorar (Enter para volver): 
+--- Top 10 de tango ---
+- 'Por Una Cabeza' - Carlos Gardel (tango) [Pop: 4.6]
+- 'Scent of a Woman: Tango (Por Una Cabeza)' - Carlos Gardel;Itzhak Perlman;John Williams;Pittsburgh Symphony Orchestra (tango) [Pop: 4.4]
+- 'Naranjo en Flor (En Directo)' - Roberto Goyeneche (tango) [Pop: 3.8]
+- 'Cambalache' - Rubén Juárez (tango) [Pop: 3.8]
+- 'Balada para un Loco' - Roberto Goyeneche;Astor Piazzolla (tango) [Pop: 3.7]
+- 'La Cumparsita (with Leopoldo Federico y Su Orquesta)' - Julio Sosa;Leopoldo Federico y su Orquesta (tango) [Pop: 3.7]
+- 'Qué me van a hablar de amor - Remastered' - Julio Sosa (tango) [Pop: 3.6]
+- 'El Firulete (with Leopoldo Federico y Su Orquesta)' - Julio Sosa;Leopoldo Federico y su Orquesta (tango) [Pop: 3.6]
+- 'Desencuentro' - Roberto Goyeneche (tango) [Pop: 3.4]
+- 'Prologue - Tango Apasionada' - Astor Piazzolla (tango) [Pop: 3.4]
+
+========================================
+         ESPOTIFY TERMINAL (v2)
+========================================
+1. Buscar canción por título (AVL)
+2. Explorar categorías (Árbol General)
+3. Ver Top 10
+4. Listar canciones
+5. Filtrar por género
+0. Salir
+----------------------------------------
+Opción: 
+--- Top 10 por popularidad ---
+ 1. 'Unholy (feat. Kim Petras)' - Sam Smith;Kim Petras (dance) [Pop: 10.0]
+ 2. 'Unholy (feat. Kim Petras)' - Sam Smith;Kim Petras (pop) [Pop: 10.0]
+ 3. 'Quevedo: Bzrp Music Sessions, Vol. 52' - Bizarrap;Quevedo (hip-hop) [Pop: 9.9]
+ 4. 'I'm Good (Blue)' - David Guetta;Bebe Rexha (dance) [Pop: 9.8]
+ 5. 'I'm Good (Blue)' - David Guetta;Bebe Rexha (edm) [Pop: 9.8]
+ 6. 'La Bachata' - Manuel Turizo (latin) [Pop: 9.8]
+ 7. 'La Bachata' - Manuel Turizo (latino) [Pop: 9.8]
+ 8. 'I'm Good (Blue)' - David Guetta;Bebe Rexha (pop) [Pop: 9.8]
+ 9. 'La Bachata' - Manuel Turizo (reggae) [Pop: 9.8]
+10. 'La Bachata' - Manuel Turizo (reggaeton) [Pop: 9.8]
+
+========================================
+         ESPOTIFY TERMINAL (v2)
+========================================
+1. Buscar canción por título (AVL)
+2. Explorar categorías (Árbol General)
+3. Ver Top 10
+4. Listar canciones
+5. Filtrar por género
+0. Salir
+----------------------------------------
+Opción: ¡Gracias por usar Espotify!

@@ -1,0 +1,23 @@
+test_agregar_hijo_errores (test_arbol_general.TestArbolGeneral.test_agregar_hijo_errores) ... ok
+test_altura_y_cantidad (test_arbol_general.TestArbolGeneral.test_altura_y_cantidad) ... ok
+test_buscar (test_arbol_general.TestArbolGeneral.test_buscar) ... ok
+test_recorridos (test_arbol_general.TestArbolGeneral.test_recorridos) ... ok
+test_arbol_categorias (test_arbol_general.TestCategorias.test_arbol_categorias) ... ok
+test_jerarquia_cubre_todos_los_generos_del_dataset (test_arbol_general.TestCategorias.test_jerarquia_cubre_todos_los_generos_del_dataset) ... ok
+test_10000_ordenados_altura_logaritmica (test_avl.TestAVL.test_10000_ordenados_altura_logaritmica) ... ok
+test_buscar (test_avl.TestAVL.test_buscar) ... ok
+test_datos_ordenados_altura_4 (test_avl.TestAVL.test_datos_ordenados_altura_4) ... ok
+test_duplicados_se_ignoran (test_avl.TestAVL.test_duplicados_se_ignoran) ... ok
+test_rotacion_derecha_derecha (test_avl.TestAVL.test_rotacion_derecha_derecha) ... ok
+test_rotacion_derecha_izquierda (test_avl.TestAVL.test_rotacion_derecha_izquierda) ... ok
+test_rotacion_izquierda_derecha (test_avl.TestAVL.test_rotacion_izquierda_derecha) ... ok
+test_rotacion_izquierda_izquierda (test_avl.TestAVL.test_rotacion_izquierda_izquierda) ... ok
+test_buscar_existente (test_catalogo.TestCatalogo.test_buscar_existente) ... ok
+test_buscar_inexistente (test_catalogo.TestCatalogo.test_buscar_inexistente) ... ok
+test_filtrar_genero (test_catalogo.TestCatalogo.test_filtrar_genero) ... ok
+test_listar (test_catalogo.TestCatalogo.test_listar) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.409s
+
+OK
