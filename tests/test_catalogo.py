@@ -24,6 +24,22 @@ class TestCatalogo(unittest.TestCase):
         rock_items = self.catalogo.filtrar("rock")
         self.assertTrue(all(c.genero.lower() == "rock" for c in rock_items))
 
+    def test_top_ordenado_por_popularidad(self):
+        canciones = self.catalogo.top(5)
+        popularidad = [c.popularidad for c in canciones]
+
+        self.assertEqual(len(canciones), 5)
+        self.assertEqual(popularidad, sorted(popularidad, reverse=True))
+
+    def test_top_ordenado_por_genero(self):
+        canciones = self.catalogo.top(5, genero ="rock")
+
+        self.assertEqual(len(canciones), 5)
+        self.assertTrue(
+            all("rock" in [g.lower() for g in c.generos] for c in canciones)
+        )
+
+
 
 if __name__ == "__main__":
     unittest.main()

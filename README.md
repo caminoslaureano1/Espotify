@@ -46,7 +46,7 @@ cd tp-integrador-Espotify
 python main.py
 ```
 
-Al iniciar, el sistema cargará automáticamente el dataset inicial en `datos/canciones.json` e iniciará la interfaz de terminal interactiva.
+Al iniciar, el sistema carga el dataset datos/canciones-kreagle.csv.csv, agrupa las filas por track_id e inicia la interfaz de terminal interactiva.
 
 ---
 
@@ -72,20 +72,24 @@ La arquitectura del proyecto aplica el principio de separación de responsabilid
 ├── README.md                  # Portada y documentación general
 ├── .gitignore                 # Reglas de exclusión para Git
 ├── datos/
-│   └── canciones.json         # Dataset de canciones en UTF-8
+│   ├── canciones.json         # Dataset de canciones en UTF-8
+│   └── canciones-kreagle.csv.csv # Dataset de canciones
 ├── docs/
 │   ├── 01-requerimientos.md   # Propuesta, alcance y requerimientos (RF/RNF)
 │   ├── 02-casos-de-uso.md     # Casos de uso detallados
 │   ├── 03-diagrama-clases.md  # Diagrama UML en formato Mermaid
 │   ├── 04-diagrama-datos.md   # Modelo e integración de estructuras
 │   ├── 05-gestion-proyecto.md # Tablero de trabajo y seguimiento
+│   ├── 06-analisis-tp6-heap.md # Análisis del heap máximo   
 │   ├── 07-analisis-tp3.md     # Análisis del BST
 │   ├── 08-analisis-tp4-tp5.md # Análisis del AVL y del árbol general
 │   └── Capturas/              # Salidas de terminal usadas como evidencia
 ├── estructuras/
 │   ├── arbol_binario.py       # BST (TP3)
 │   ├── avl.py                 # Árbol AVL (TP4)
-│   └── arbol_general.py       # Árbol general N-ario (TP5)
+│   ├── arbol_general.py       # Árbol general N-ario (TP5)
+│   ├── grafo_canciones.py     # Recomendaciones por similitud en grafo
+├   └── heap_maximo.py         # Heap maximo usado para obtener el top por popularidad
 ├── algoritmos/
 │   ├── medir_tiempos.py       # Secuencial vs BST (TP3)
 │   └── comparar_bst_avl.py    # BST vs AVL con datos ordenados (TP4)
@@ -99,9 +103,9 @@ La arquitectura del proyecto aplica el principio de separación de responsabilid
 └── tests/
     ├── test_catalogo.py       # Pruebas del catálogo
     ├── test_avl.py            # Pruebas del AVL y sus rotaciones
-    └── test_arbol_general.py  # Pruebas del árbol general y la jerarquía
-```
-
+    ├── test_arbol_general.py  # Pruebas del árbol general y la jerarquía
+    ├── test_grafo_canciones.py #Pruebas de recomendaciones del grafo
+    └── test_heap_maximo.py #Pruebas de insercion y extraccion del heap
 ---
 
 ## 📄 Documentación del Proyecto
@@ -111,7 +115,9 @@ Toda la documentación técnica se encuentra formalizada en la carpeta `docs/`:
 * [📄 01-requerimientos.md](docs/01-requerimientos.md) — Dominio, problema, usuario objetivo y requerimientos del sistema.
 * [📄 02-casos-de-uso.md](docs/02-casos-de-uso.md) — Flujos principales y alternativos de interacción.
 * [📄 03-diagrama-clases.md](docs/03-diagrama-clases.md) — Diagrama de clases Mermaid actualizado (v1).
+* [📄 04-dIagrama-de-datos.md](docs/04-dIagrama-de-datos.md) — Modelo del grafo y recomendaciones.
 * [📄 05-gestion-proyecto.md](docs/05-gestion-proyecto.md) — Planificación del proyecto y enlace al tablero Kanban.
+* [📄 06-analisis-tp6-heap.md](docs/06-analisis-tp6-heap.md) — Análisis del heap máximo.
 * [📄 07-analisis-tp3.md](docs/07-analisis-tp3.md) — Análisis del árbol binario de búsqueda.
 * [📄 08-analisis-tp4-tp5.md](docs/08-analisis-tp4-tp5.md) — Análisis del árbol AVL y del árbol general.
 
@@ -125,5 +131,5 @@ Toda la documentación técnica se encuentra formalizada en la carpeta `docs/`:
 * [x] **TP3 (Árbol Binario de Búsqueda):** Indexación por título con BST y medición de tiempos.
 * [x] **TP4 (Árbol AVL):** Índice por título auto-balanceado, comparación BST vs AVL con 10.000 datos ordenados.
 * [x] **TP5 (Árbol General):** Jerarquía Música → familia → género para la opción "Explorar categorías".
-* [ ] **TP6 (Colas de Prioridad - Heap):** Ranking Top-N de canciones por popularidad.
-* [ ] **TP7 (Grafos):** Recomendación por caminos de similitud entre pistas.
+* [x] **TP6 (Colas de Prioridad - Heap):** Ranking Top-N de canciones por popularidad.
+* [x] **TP7 (Grafos):** Recomendacion de canciones relacionadas por artista y genero mediante un grafo con costos.

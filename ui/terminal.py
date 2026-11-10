@@ -1,14 +1,15 @@
 from estructuras.arbol_general import ArbolGeneral
 from servicios.catalogo import Catalogo
+from estructuras.grafo_canciones import GrafoCanciones
 
 
 class Terminal:
     """Interfaz de usuario en línea de comandos."""
 
-    def __init__(self, catalogo: Catalogo, arbol_categorias: ArbolGeneral) -> None:
+    def __init__(self, catalogo: Catalogo, arbol_categorias: ArbolGeneral, grafo: GrafoCanciones) -> None:
         self._catalogo = catalogo
         self._arbol_categorias = arbol_categorias
-
+        self._grafo = grafo
     def iniciar(self) -> None:
         while True:
             self._mostrar_menu()
@@ -23,6 +24,8 @@ class Terminal:
                 self._listar()
             elif opcion == "5":
                 self._filtrar()
+            elif opcion == "6":
+                self._recomendar()
             elif opcion == "0":
                 print("¡Gracias por usar Espotify!")
                 break
@@ -38,6 +41,7 @@ class Terminal:
         print("3. Ver Top 10")
         print("4. Listar canciones")
         print("5. Filtrar por género")
+        print("6. Recomendar canciones")
         print("0. Salir")
         print("-" * 40)
 
@@ -103,3 +107,22 @@ class Terminal:
             print()
         else:
             print(f"\nNo hay canciones para el género '{genero}'.\n")
+
+    def _recomendar(self) -> None:
+        titulo = input("titulo de la cancion: ").strip()
+        cancion = self._catalogo.buscar(titulo)
+
+        if cancion is None:
+            print(f"\nNo se encuentra la cancion'{titulo}'.\n")
+            return
+
+        recomendaciones = self._grafo.recomendaciones(cancion.track_id)
+
+        if not recomendaciones:
+            print(f"\nNo hay recomendaciones para '{cancion.titulo}' \n")
+            return
+
+        print(f"\n--- Recomendaciones para {cancion.titulo} ---")
+        for recomendacion in recomendaciones:
+            print(f"- {recomendacion}")
+        print()

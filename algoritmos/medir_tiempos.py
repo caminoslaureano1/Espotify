@@ -1,23 +1,34 @@
 import os
 import sys
 import time
+import random
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from estructuras.arbol_binario import ArbolBST
 from servicios.catalogo import Catalogo
 
+def buscar_secuencial_en_lista(canciones, titulo):
+    objetivo = titulo.strip().lower()
+    for cancion in canciones:
+        if cancion.titulo.lower() == objetivo:
+            return cancion
+    return None
+
+def contar_comparaciones(canciones, titulo):
+    objetivo = titulo.strip().lower()
+    comparaciones = 0
+
+    for cancion in canciones:
+        comparaciones += 1
+        if cancion.titulo.lower() == objetivo:
+            break
+    return comparaciones
 
 def medir():
     catalogo = Catalogo()
-    # Cambiar por la ruta real que utilices (canciones.json o canciones_kaggle.csv)
-    ruta = "datos/canciones.json"
-
-    if os.path.exists("datos/canciones_kaggle.csv"):
-        ruta = "datos/canciones_kaggle.csv"
-        catalogo.cargar_desde_csv(ruta)
-    else:
-        catalogo.cargar_desde_json(ruta)
+    # Carga del dataset usado en el experimento.
+    ruta = "datos/canciones-kreagle.csv.csv"
+    catalogo.cargar_desde_csv(ruta)
 
     elementos = catalogo.listar(limite=len(catalogo))
     total = len(elementos)
@@ -26,35 +37,49 @@ def medir():
         print("El catálogo está vacío.")
         return
 
-    # Construcción previa del árbol (NO se mide dentro del cronómetro de búsqueda)
-    arbol = ArbolBST()
-    for c in elementos:
-        arbol.insertar(c, clave=lambda x: x.titulo.lower())
+    tamaños = sorted(set(n for n in (100, 1_000, 10_000, total) if n <= total))
+    repeticiones = 1_000
+    random.seed(42)
+    print("Busqueda secuencial: promedio de titulos elegidos al azar")
+    print(f"{'canciones':>12} {'busquedas':>14} {'promedio (ms)':>16}")
+    for tamaño in tamaños:
+        muestra = elementos[:tamaño]
+        objetivos = list(dict.fromkeys(c.titulo.lower() for c in muestra))
+        objetivos =random.sample(objetivos, min(repeticiones, len(objetivos)))
 
-    # Canción a buscar (tomamos el último elemento para probar el peor caso secuencial)
-    cancion_objetivo = elementos[-1].titulo.lower()
+        inicio = time.perf_counter()
+        for objetivo in objetivos:
+            buscar_secuencial_en_lista(muestra, objetivo)
+        fin = time.perf_counter()
 
-    # 1. Medir Búsqueda Secuencial
-    inicio = time.perf_counter()
-    catalogo.buscar_secuencial(cancion_objetivo)
-    fin = time.perf_counter()
-    tiempo_secuencial = (fin - inicio) * 1000  # ms
+        promedio_ms = (fin - inicio) * 1000 / len(objetivos)
+        print(f"{tamaño:>12} | {len(objetivos):>14} | {promedio_ms:>16.6f}")
 
-    # 2. Medir Búsqueda en Árbol BST
-    inicio = time.perf_counter()
-    arbol.buscar(cancion_objetivo, clave=lambda x: x.titulo.lower())
-    fin = time.perf_counter()
-    tiempo_arbol = (fin - inicio) * 1000  # ms
+    print("\nComparaciones de la busqueda secuencial")
+    print(
+        f"{'Canciones':>12}  {'Mejor caso':>14} "
+        f"{'Promedio':>14} {'Peor caso':>14}"
+    )
+    random.seed(42)
+    for tamaño in tamaños:
+        muestra = elementos[:tamaño]
+        titulos_unicos = list(dict.fromkeys(c.titulo.lower() for c in muestra))
+        objetivos = random.sample(
+            titulos_unicos, min(repeticiones, len(titulos_unicos))
+        )
 
-    print("=" * 60)
-    print(f"BENCHMARK ESPOTIFY (Dataset: {total} elementos)")
-    print("=" * 60)
-    print(f"Objetivo buscado: '{cancion_objetivo}'")
-    print("-" * 60)
-    print(f"Secuencial : {tiempo_secuencial:.5f} ms")
-    print(f"Árbol BST  : {tiempo_arbol:.5f} ms")
-    print("=" * 60)
+        mejor_caso = contar_comparaciones(muestra, muestra[0].titulo)
+        promedio  = sum(
+            contar_comparaciones(muestra, objetivo) for objetivo in objetivos  
+        ) / len(objetivos)
 
+        peor_caso = contar_comparaciones(
+            muestra, "__titulo_inexistente_para_tp2__"
+        )
 
+        print(
+            f"{tamaño:>12} {mejor_caso:>14}"
+            f"{promedio:>12.2f} {peor_caso:>14}"
+        )
 if __name__ == "__main__":
     medir()

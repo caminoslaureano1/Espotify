@@ -1,5 +1,6 @@
 import csv
 import json
+from estructuras.heap_maximo import HeapMaximo
 from estructuras.avl import AVL
 from modelos.cancion import Cancion
 
@@ -35,7 +36,10 @@ class Catalogo:
     def cargar_desde_csv(self, ruta: str) -> None:
         with open(ruta, mode="r", encoding="utf-8") as archivo:
             lector = csv.DictReader(archivo)
+            canciones_por_id = {}
             for fila in lector:
+                track_id = fila.get("track_id", "").strip()
+                duracion = int(fila.get("duration_ms") or 0)
                 titulo = (
                     fila.get("track_name") or fila.get("titulo") or "Desconocido"
                 )
@@ -57,14 +61,35 @@ class Catalogo:
                 else:
                     popularidad = round(float(fila.get("popularidad") or 0), 1)
 
-                self._elementos.append(
-                    Cancion(
-                        titulo=titulo.strip(),
-                        artista=artista.strip(),
-                        genero=genero.strip(),
-                        popularidad=popularidad,
-                    )
+                if track_id not in canciones_por_id:
+                    canciones_por_id[track_id] = {
+                        "titulo": titulo,
+                        "artista": artista,
+                        "duracion": duracion,
+                        "genero": set(),
+                        "suma_popularidad": 0.0,
+                        "cantidad_popularidades": 0,
+                    }
+
+                datos = canciones_por_id[track_id]
+                datos["genero"].add(genero.strip())
+                datos["suma_popularidad"] += popularidad
+                datos["cantidad_popularidades"] += 1
+
+        for track_id, datos in canciones_por_id.items():
+            popularidad_promedio = round(datos["suma_popularidad"] / datos["cantidad_popularidades"], 1)
+            self._elementos.append(
+                Cancion(
+                    titulo=datos["titulo"],
+                    artista=datos["artista"],
+                    genero=sorted(datos["genero"])[0],
+                    popularidad=popularidad_promedio,
+                    track_id=track_id,
+                    duracion_ms=datos["duracion"],
+                    generos=sorted(datos["genero"]),
                 )
+            )  
+               
         self._indexar_arbol()
 
     def buscar_secuencial(self, titulo: str) -> Cancion | None:
@@ -93,16 +118,25 @@ class Catalogo:
         return self._arbol_titulos.altura()
 
     def top(self, cantidad: int = 10, genero: str | None = None) -> list[Cancion]:
-        """Las `cantidad` canciones más populares (opcionalmente de un género).
+        """Devuelve las canciones más populares, opcionalmente filtradas por género, 
+            usando un heap máximo."""
 
-        Provisorio con sorted() O(n log n); en el TP6 se reemplaza por un heap.
-        """
+       
         candidatas = self.filtrar(genero) if genero else self._elementos
-        return sorted(candidatas, key=lambda c: c.popularidad, reverse=True)[:cantidad]
+        heap = HeapMaximo()
+        for cancion in candidatas:
+            heap.insertar(cancion)
+        resultado = []
+        cantidad_a_devolver = min(cantidad, len(candidatas))
+
+        for _ in range(cantidad_a_devolver):
+            resultado.append(heap.extraer_maximo())
+
+        return resultado
 
     def filtrar(self, genero: str) -> list[Cancion]:
         target = genero.strip().lower()
-        return [c for c in self._elementos if c.genero.lower() == target]
+        return [c for c in self._elementos if any(g.lower() == target for g in c.generos)]
 
     def __len__(self) -> int:
         return len(self._elementos)

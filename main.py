@@ -2,6 +2,7 @@ from estructuras.arbol_general import ArbolGeneral
 from servicios.catalogo import Catalogo
 from servicios.categorias import construir_arbol_categorias
 from ui.terminal import Terminal
+from estructuras.grafo_canciones import GrafoCanciones
 
 
 def main() -> None:
@@ -20,10 +21,10 @@ def main() -> None:
     # Jerarquía Música → familia → género (opción "Explorar categorías")
     arbol_categorias = ArbolGeneral()
     construir_arbol_categorias(arbol_categorias)
+    grafo = GrafoCanciones(catalogo.listar(limite=len(catalogo)))
 
-    terminal = Terminal(catalogo, arbol_categorias)
+    terminal = Terminal(catalogo, arbol_categorias, grafo)
     terminal.iniciar()
-
 
 if __name__ == "__main__":
     main()
